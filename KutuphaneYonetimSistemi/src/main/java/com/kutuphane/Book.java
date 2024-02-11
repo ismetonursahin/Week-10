@@ -25,7 +25,7 @@ public class Book {
     @JoinColumn(name = "book_author_id" , referencedColumnName = "author_id")
     private Author author;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "book2category",
             joinColumns = {
@@ -37,7 +37,7 @@ public class Book {
     )
     private List<Category> categoryList;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_publisher_id" , referencedColumnName = "publisher_id")
     private Publisher publisher;
 

@@ -22,7 +22,7 @@ public class Publisher {
     @Column(name = "publisher_address", nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher" , cascade = CascadeType.ALL)
     private List<Book> bookList;
 
 

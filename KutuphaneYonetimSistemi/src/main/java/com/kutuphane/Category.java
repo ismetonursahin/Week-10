@@ -20,7 +20,7 @@ public class Category {
     @Column(name = "category_description")
     private String description;
 
-    @ManyToMany(mappedBy = "categoryList")
+    @ManyToMany(mappedBy = "categoryList",cascade = CascadeType.REMOVE)
     private List <Book> bookList;
 
     public Category() {
